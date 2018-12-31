@@ -1,0 +1,95 @@
+$base: #222;
+$text: #fff;
+$grey-1: lighten( $base, 10% );
+$grey-2: lighten( $base, 45% );
+$accent: #2b92ce;
+$red: #D6423C;
+$yellow: #F4B924;
+$green: #2BE574;
+
+@import url('https://fonts.googleapis.com/css?family=Archivo+Black');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700');
+
+html {
+    font-size: 10px;
+}
+
+body {
+    align-items: center;
+    background: $base;
+    color: $text;
+    display: flex;
+    font-family: 'IBM Plex Mono', monospace;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.link-list {
+    align-content: center;
+    display: grid;
+    grid-auto-rows: 15rem;
+    grid-gap: 2rem;
+    grid-template-columns: repeat( 2, 15rem );
+    justify-content: center;
+    margin: auto;
+
+    @media (min-width: 44rem ) {
+        grid-template-columns: repeat( 4, 15rem );
+    }
+
+    a {
+        background: $grey-1;
+        border-bottom: .5rem solid $accent;
+        color: $grey-2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        text-decoration: none;
+
+        h2 {
+            color: $accent;
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 5rem;
+            margin: 0 0 1rem;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin: 0;
+        }
+    }
+}
+
+.nav-bar {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 1.5rem 0;
+
+    .clock {
+        display: flex;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    button {
+        background: $grey-1;
+        border: 0;
+        border-radius: .25rem;
+        color: $text;
+        cursor: pointer;
+        font-family: 'IBM Plex Mono', monospace;
+        margin: 0 .25rem;
+        padding: .5rem .75rem;
+
+        &:first-of-type {
+            margin-left: 0;
+        }
+
+        &:last-of-type {
+            margin-right: 0;
+        }
+    }
+}
