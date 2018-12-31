@@ -24,3 +24,5 @@ npm run dev
 and it will load up in your browser.
 
 Happy hacking.
+
+[react]: https://reactjs.org/
