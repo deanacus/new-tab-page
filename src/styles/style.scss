@@ -1,18 +1,12 @@
-$base: #222;
+$base: #352c29;
 $text: #fff;
 $grey-1: lighten( $base, 10% );
 $grey-2: lighten( $base, 45% );
-$accent: #2b92ce;
-$red: #D6423C;
-$yellow: #F4B924;
-$green: #2BE574;
+$accent: #22bb9a;
+$modal-overlay: rgba( $accent, .25 );
 
 @import url('https://fonts.googleapis.com/css?family=Archivo+Black');
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700');
-
-html {
-    font-size: 10px;
-}
 
 body {
     align-items: center;
@@ -28,19 +22,19 @@ body {
 .link-list {
     align-content: center;
     display: grid;
-    grid-auto-rows: 15rem;
-    grid-gap: 2rem;
-    grid-template-columns: repeat( 2, 15rem );
+    grid-auto-rows: 10rem;
+    grid-gap: 1rem;
+    grid-template-columns: repeat( 2, 10rem );
     justify-content: center;
     margin: auto;
 
     @media (min-width: 44rem ) {
-        grid-template-columns: repeat( 4, 15rem );
+        grid-template-columns: repeat( 4, 10rem );
     }
 
     a {
         background: $grey-1;
-        border-bottom: .5rem solid $accent;
+        border-bottom: .2rem solid $accent;
         color: $grey-2;
         display: flex;
         flex-direction: column;
@@ -51,12 +45,12 @@ body {
         h2 {
             color: $accent;
             font-family: 'Archivo Black', sans-serif;
-            font-size: 5rem;
-            margin: 0 0 1rem;
+            font-size: 3rem;
+            margin: 0 0 .5rem;
         }
 
         p {
-            font-size: 1.2em;
+            font-size: .75em;
             margin: 0;
         }
     }
@@ -69,9 +63,14 @@ body {
     margin: 1.5rem 0;
 
     .clock {
+        color: $accent;
         display: flex;
-        font-size: 2rem;
+        font-size: 1.25rem;
         font-weight: bold;
+
+        .time-segment {
+            color: $text;
+        }
     }
 
     button {
@@ -90,6 +89,74 @@ body {
 
         &:last-of-type {
             margin-right: 0;
+        }
+    }
+}
+
+.modal {
+    align-items: center;
+    background: $modal-overlay;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+
+    .link-form {
+        background: $base;
+        max-width: 90%;
+        width: 25rem;
+    }
+
+    h1 {
+        font-family: 'Archivo Black', sans-serif;
+        text-align: center;
+    }
+
+    form {
+        margin: 0;
+
+        .controls {
+            display: flex;
+            padding-top: 1rem;
+        }
+
+        p {
+            font-size: .75rem;
+            margin-bottom: .25rem;
+        }
+
+        label {
+            display: block;
+            margin: 0 2rem 1rem;
+        }
+
+        input {
+            border: 0;
+            border-radius: .125rem;
+            font-size: 1rem;
+            line-height: 1.5rem;
+            padding: .25rem;
+            width: 100%;
+        }
+
+        button {
+            background: $base;
+            border: 0;
+            border-bottom: .2rem solid $base;
+            color: $text;
+            cursor: pointer;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: .75rem;
+            padding: 1rem 1rem .8rem;
+            width: 50%;
+
+            &:hover {
+                background: $grey-1;
+                border-bottom: .2rem solid $accent;
+            }
         }
     }
 }

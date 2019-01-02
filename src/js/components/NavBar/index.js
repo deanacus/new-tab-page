@@ -2,10 +2,10 @@ import React from 'react';
 import Clock from '../Clock';
 import Buttons from '../Buttons';
 
-const NavBar = () => (
+const NavBar = ( props ) => (
 	<nav className="nav-bar">
 		<Clock />
-		<Buttons />
+		<Buttons toggleAddLinks={props.toggleAddLinks} toggleEditLinks={props.toggleEditLinks}/>
 	</nav>
 );
 

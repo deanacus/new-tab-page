@@ -26,11 +26,11 @@ class Clock extends React.Component {
 	render() {
 		return (
 			<div className="clock">
-				<div className="hours">{this._addLeadingZero( this.state.date.getHours() ) }</div>
+				<div className="hours time-segment">{this._addLeadingZero( this.state.date.getHours() ) }</div>
 				:
-				<div className="minutes">{this._addLeadingZero( this.state.date.getMinutes() ) }</div>
+				<div className="minutes time-segment">{this._addLeadingZero( this.state.date.getMinutes() ) }</div>
 				:
-				<div className="seconds">{this._addLeadingZero( this.state.date.getSeconds() ) }</div>
+				<div className="seconds time-segment">{this._addLeadingZero( this.state.date.getSeconds() ) }</div>
 			</div>
 		);
 	}
