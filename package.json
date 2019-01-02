@@ -1,7 +1,7 @@
 {
   "name": "shuvit",
   "version": "1.0.0",
-  "main": "./src/index.js",
+  "main": "./src/js/index.js",
   "author": "Dean Harris",
   "license": "MIT",
   "scripts": {
