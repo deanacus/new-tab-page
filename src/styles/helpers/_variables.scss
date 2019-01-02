@@ -1,0 +1,42 @@
+// SITE
+
+$site-width: 800px;
+$site-margin: 5%;
+
+// BREAKPOINTS
+
+$tablet: 768px;
+$desktop: 1024px;
+
+// GRID
+
+$default-cols: 6;
+$default-col-padding: 1rem;
+
+// FONTS
+
+$body: 'IBM Plex Mono', monospace;
+$heading: 'Archivo Black', sans-serif;
+$code: 'IBM Plex Mono', monospace;
+
+// TYPE SIZES
+
+$type-small: .8rem;
+$type-default: 1rem;
+$type-large: 1.25rem;
+$type-subheading: 1.6rem;
+$type-heading: 2.4rem;
+$type-title: 3rem;
+$type-display: 6rem;
+
+// COLOURS
+$white: #f5f5f5;
+$black: #272220;
+
+$grey-1: lighten( $black, 10% );
+$grey-2: lighten( $black, 45% );
+$accent: #22bb9a;
+$modal-overlay: rgba( $accent, .25 );
+
+$text: $white;
+$base: $black;

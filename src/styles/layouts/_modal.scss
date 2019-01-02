@@ -1,0 +1,67 @@
+.modal {
+    align-items: center;
+    background: $modal-overlay;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+
+    .link-form {
+        background: $base;
+        max-width: 90%;
+        width: 25rem;
+    }
+
+    h1 {
+        font-family: $heading;
+        text-align: center;
+    }
+
+    form {
+        margin: 0;
+
+        .controls {
+            display: flex;
+            padding-top: 1rem;
+        }
+
+        p {
+            font-size: .75rem;
+            margin-bottom: .25rem;
+        }
+
+        label {
+            display: block;
+            margin: 0 2rem 1rem;
+        }
+
+        input {
+            border: 0;
+            border-radius: .125rem;
+            font-size: 1rem;
+            line-height: 1.5rem;
+            padding: .25rem;
+            width: 100%;
+        }
+
+        button {
+            background: $base;
+            border: 0;
+            border-bottom: .2rem solid $base;
+            color: $text;
+            cursor: pointer;
+            font-family: $code;
+            font-size: .75rem;
+            padding: 1rem 1rem .8rem;
+            width: 50%;
+
+            &:hover {
+                background: $grey-1;
+                border-bottom: .2rem solid $accent;
+            }
+        }
+    }
+}

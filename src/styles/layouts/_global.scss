@@ -1,0 +1,15 @@
+body {
+    align-items: center;
+    background: $base;
+    color: $text;
+    display: flex;
+    font-family: $code;
+    height: 100vh;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+@import './link-list';
+@import './navbar';
+@import './modal';

@@ -1,162 +1,32 @@
-$base: #352c29;
-$text: #fff;
-$grey-1: lighten( $base, 10% );
-$grey-2: lighten( $base, 45% );
-$accent: #22bb9a;
-$modal-overlay: rgba( $accent, .25 );
+/**
+ * UPSTART SASS
+ *
+ */
 
-@import url('https://fonts.googleapis.com/css?family=Archivo+Black');
-@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700');
+// Functions
+@import 'functions/tint';
+@import 'functions/shade';
+@import 'functions/colour-opacity';
 
-body {
-    align-items: center;
-    background: $base;
-    color: $text;
-    display: flex;
-    font-family: 'IBM Plex Mono', monospace;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-}
+// Mixins
+@import 'mixins/grid';
+@import 'mixins/max';
+@import 'mixins/min';
+@import 'mixins/font-include';
+@import 'mixins/clearfix';
+@import 'mixins/centre-box';
 
-.link-list {
-    align-content: center;
-    display: grid;
-    grid-auto-rows: 10rem;
-    grid-gap: 1rem;
-    grid-template-columns: repeat( 2, 10rem );
-    justify-content: center;
-    margin: auto;
+// Helpers
+@import 'helpers/imports';
+@import 'helpers/variables';
 
-    @media (min-width: 44rem ) {
-        grid-template-columns: repeat( 4, 10rem );
-    }
+// Foundation
+@import 'foundation/reset';
+@import 'foundation/type';
 
-    a {
-        background: $grey-1;
-        border-bottom: .2rem solid $accent;
-        color: $grey-2;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        text-decoration: none;
+// Components
+// @import 'components/buttons';
+// @import 'components/forms';
 
-        h2 {
-            color: $accent;
-            font-family: 'Archivo Black', sans-serif;
-            font-size: 3rem;
-            margin: 0 0 .5rem;
-        }
-
-        p {
-            font-size: .75em;
-            margin: 0;
-        }
-    }
-}
-
-.nav-bar {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    margin: 1.5rem 0;
-
-    .clock {
-        color: $accent;
-        display: flex;
-        font-size: 1.25rem;
-        font-weight: bold;
-
-        .time-segment {
-            color: $text;
-        }
-    }
-
-    button {
-        background: $grey-1;
-        border: 0;
-        border-radius: .25rem;
-        color: $text;
-        cursor: pointer;
-        font-family: 'IBM Plex Mono', monospace;
-        margin: 0 .25rem;
-        padding: .5rem .75rem;
-
-        &:first-of-type {
-            margin-left: 0;
-        }
-
-        &:last-of-type {
-            margin-right: 0;
-        }
-    }
-}
-
-.modal {
-    align-items: center;
-    background: $modal-overlay;
-    display: flex;
-    height: 100vh;
-    justify-content: center;
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 100vw;
-
-    .link-form {
-        background: $base;
-        max-width: 90%;
-        width: 25rem;
-    }
-
-    h1 {
-        font-family: 'Archivo Black', sans-serif;
-        text-align: center;
-    }
-
-    form {
-        margin: 0;
-
-        .controls {
-            display: flex;
-            padding-top: 1rem;
-        }
-
-        p {
-            font-size: .75rem;
-            margin-bottom: .25rem;
-        }
-
-        label {
-            display: block;
-            margin: 0 2rem 1rem;
-        }
-
-        input {
-            border: 0;
-            border-radius: .125rem;
-            font-size: 1rem;
-            line-height: 1.5rem;
-            padding: .25rem;
-            width: 100%;
-        }
-
-        button {
-            background: $base;
-            border: 0;
-            border-bottom: .2rem solid $base;
-            color: $text;
-            cursor: pointer;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: .75rem;
-            padding: 1rem 1rem .8rem;
-            width: 50%;
-
-            &:hover {
-                background: $grey-1;
-                border-bottom: .2rem solid $accent;
-            }
-        }
-    }
-}
+// Layouts
+@import 'layouts/global';

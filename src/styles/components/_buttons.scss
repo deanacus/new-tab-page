@@ -1,0 +1,28 @@
+.btn {
+    background: transparent;
+    border: 2px solid $black;
+    border-radius: .25rem;
+    cursor: pointer;
+    font-size: .9rem;
+    padding: .5rem 1rem;
+
+    &:hover {
+        opacity: .95;
+    }
+
+    &:active {
+        opacity: .9;
+    }
+
+    &.btn--primary {
+        background: $blue;
+        border-color: $blue;
+        color: $white;
+    }
+
+    &.btn--secondary {
+        background: $green;
+        border-color: $green;
+        color: $white;
+    }
+}

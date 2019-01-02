@@ -1,0 +1,36 @@
+.link-list {
+    align-content: center;
+    display: grid;
+    grid-auto-rows: 10rem;
+    grid-gap: 1rem;
+    grid-template-columns: repeat( 2, 10rem );
+    justify-content: center;
+    margin: auto;
+
+    @media (min-width: 44rem ) {
+        grid-template-columns: repeat( 4, 10rem );
+    }
+
+    a {
+        background: $grey-1;
+        border-bottom: .2rem solid $accent;
+        color: $grey-2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        text-decoration: none;
+
+        h2 {
+            color: $accent;
+            font-family: $heading;
+            font-size: 3rem;
+            margin: 0 0 .5rem;
+        }
+
+        p {
+            font-size: .75em;
+            margin: 0;
+        }
+    }
+}
