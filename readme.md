@@ -9,8 +9,8 @@ conditional rendering and the like.
 
 Roadmap:
 
-* [x] Render links on screen
-* [x] Add ability to add links
+* [x] ~~Render links on screen~~
+* [x] ~~Add ability to add links~~
 * [ ] Add ability to edit links
 * [ ] Add ability to sort/rearrange links
 * [ ] Store links in localStorage
