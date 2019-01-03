@@ -64,4 +64,22 @@
             }
         }
     }
+
+    .edit-link {
+        align-items: center;
+        display: flex;
+        font-size: .75rem;
+        justify-content: space-between;
+        margin: 0 2rem 1rem;
+        word-break: break-word;
+
+        span {
+            display: block;
+        }
+
+        .controls {
+            display: flex;
+            flex-direction: column;
+        }
+    }
 }

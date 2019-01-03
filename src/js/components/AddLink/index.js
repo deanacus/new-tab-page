@@ -9,9 +9,11 @@ class AddLink extends React.Component {
 			abbrev: '',
 			title: '',
 			url: '',
+			valid: false,
 		};
 
 		this.generateLinkID = this.generateLinkID.bind( this );
+		this.isValid = this.isValid.bind( this );
 		this.handleChange = this.handleChange.bind( this );
 		this.handleSubmit = this.handleSubmit.bind( this );
 	}
@@ -26,9 +28,16 @@ class AddLink extends React.Component {
 		}
 	};
 
+	isValid() {
+		if ( '' !== this.state.abbrev && '' !== this.state.title && '' !== this.state.url ) {
+			return true;
+		}
+		return false;
+	}
+
 	handleChange( event ) {
-		let identifier = event.target.name;
-		let value = event.target.value;
+		let identifier = event.currentTarget.name;
+		let value = event.currentTarget.value;
 		this.setState( state => {
 			return { [ identifier ]: value };
 		} );
@@ -36,7 +45,7 @@ class AddLink extends React.Component {
 
 	handleSubmit() {
 		event.preventDefault();
-		if ( '' !== this.state.abbrev && '' !== this.state.title && '' !== this.state.url ) {
+		if ( this.isValid() ) {
 			this.props.add( this.state );
 			this.props.close();
 		}

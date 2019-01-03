@@ -7,6 +7,7 @@ const LinkList = ( props ) => (
 			props.links.map( link => {
 				return <Link
 					key={link.id}
+					id={link.id}
 					abbrev={link.abbrev}
 					title={link.title}
 					url={link.url}

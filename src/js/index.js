@@ -19,6 +19,7 @@ class App extends React.Component {
 		this.showEditForm = this.showEditForm.bind( this );
 		this.closeModal = this.closeModal.bind( this );
 		this.addLink = this.addLink.bind( this );
+		this.deleteLink = this.deleteLink.bind( this );
 	}
 
 	showAddForm() {
@@ -46,6 +47,13 @@ class App extends React.Component {
 		} );
 	}
 
+	deleteLink( linkID ) {
+		this.setState( ( state ) => {
+			var newLinksArray = state.links.filter( link => link.id !== linkID );
+			return {links: newLinksArray };
+		} );
+	}
+
 	render() {
 		return (
 			<React.Fragment>
@@ -54,7 +62,13 @@ class App extends React.Component {
 				{
 					this.state.showModal &&
 					this.state.modal &&
-					<Modal content={this.state.modal} close={this.closeModal} add={this.addLink} />
+					<Modal
+						content={this.state.modal}
+						close={this.closeModal}
+						add={this.addLink}
+						links={this.state.links}
+						delete={this.deleteLink}
+					 />
 				}
 			</React.Fragment>
 		);
