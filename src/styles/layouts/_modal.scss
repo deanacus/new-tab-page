@@ -9,10 +9,15 @@
     top: 0;
     width: 100vw;
 
-    .link-form {
+    .modal-content {
         background: $base;
         max-width: 90%;
         width: 25rem;
+
+        .modal-body {
+            max-height: 50vh;
+            overflow-y: scroll;
+        }
     }
 
     h1 {
@@ -22,11 +27,6 @@
 
     form {
         margin: 0;
-
-        .controls {
-            display: flex;
-            padding-top: 1rem;
-        }
 
         p {
             font-size: .75rem;
@@ -46,6 +46,11 @@
             padding: .25rem;
             width: 100%;
         }
+    }
+
+    .form-controls {
+        display: flex;
+        padding-top: 1rem;
 
         button {
             background: $base;
@@ -56,7 +61,7 @@
             font-family: $code;
             font-size: .75rem;
             padding: 1rem 1rem .8rem;
-            width: 50%;
+            width: 100%;
 
             &:hover {
                 background: $grey-1;
@@ -80,6 +85,23 @@
         .controls {
             display: flex;
             flex-direction: column;
+
+            button {
+                background: $base;
+                border: 0;
+                border-bottom: .2rem solid $base;
+                color: $text;
+                cursor: pointer;
+                font-family: $code;
+                font-size: .75rem;
+                padding: .5rem .5rem .3rem;
+                width: 100%;
+
+                &:hover {
+                    background: $grey-1;
+                    border-bottom: .2rem solid $accent;
+                }
+            }
         }
     }
 }

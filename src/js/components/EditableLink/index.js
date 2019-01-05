@@ -2,9 +2,12 @@ import React from 'react';
 
 const EditableLink = ( props ) => {
 	const handleDelete = () => {
-		console.log( 'Delete button clicked for link ID: ' + props.id );
 		props.delete( props.id );
 		props.close();
+	};
+
+	const handleEditClick = () => {
+		props.editSingle( props.id );
 	};
 
 	return (
@@ -14,7 +17,7 @@ const EditableLink = ( props ) => {
 				<span>{props.url}</span>
 			</div>
 			<div className="controls">
-				<button type="button">Edit</button>
+				<button type="button" onClick={handleEditClick}>Edit</button>
 				<button type="button" onClick={handleDelete}>Delete</button>
 			</div>
 		</div>

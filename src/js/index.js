@@ -13,13 +13,16 @@ class App extends React.Component {
 			links: links,
 			showModal: false,
 			modal: '',
+			linkToEdit: '',
 		};
 
 		this.showAddForm = this.showAddForm.bind( this );
 		this.showEditForm = this.showEditForm.bind( this );
+		this.showEditSingle = this.showEditSingle.bind( this );
 		this.closeModal = this.closeModal.bind( this );
 		this.addLink = this.addLink.bind( this );
 		this.deleteLink = this.deleteLink.bind( this );
+		this.editLink = this.editLink.bind( this );
 	}
 
 	showAddForm() {
@@ -28,6 +31,11 @@ class App extends React.Component {
 
 	showEditForm() {
 		this.setState( { showModal: true, modal: 'editLinks' } );
+	}
+
+	showEditSingle( linkID ) {
+		const linkToEdit = this.state.links.find( link => link.id === linkID );
+		this.setState( { showModal: true, modal: 'editSingleLink', linkToEdit: linkToEdit } );
 	}
 
 	closeModal() {
@@ -54,6 +62,19 @@ class App extends React.Component {
 		} );
 	}
 
+	editLink( newLink, linkID ) {
+		this.setState( ( state ) => {
+			const newLinks = state.links.map( link => {
+				if ( link.id === linkID ) {
+					link = newLink;
+				}
+				return link;
+			} );
+
+			return {links: newLinks};
+		} );
+	}
+
 	render() {
 		return (
 			<React.Fragment>
@@ -63,11 +84,14 @@ class App extends React.Component {
 					this.state.showModal &&
 					this.state.modal &&
 					<Modal
-						content={this.state.modal}
-						close={this.closeModal}
+						action={this.state.modal}
 						add={this.addLink}
-						links={this.state.links}
+						close={this.closeModal}
 						delete={this.deleteLink}
+						edit={this.editLink}
+						editSingle={this.showEditSingle}
+						links={this.state.links}
+						singleLink={this.state.linkToEdit}
 					 />
 				}
 			</React.Fragment>
