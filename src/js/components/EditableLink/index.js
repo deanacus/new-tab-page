@@ -17,8 +17,8 @@ const EditableLink = ( props ) => {
 				<span>{props.url}</span>
 			</div>
 			<div className="controls">
-				<button type="button" onClick={handleEditClick}>Edit</button>
-				<button type="button" onClick={handleDelete}>Delete</button>
+				<button type="button" onClick={handleEditClick}><img src="/images/edit.svg" /></button>
+				<button type="button" onClick={handleDelete}><img src="/images/delete.svg" /></button>
 			</div>
 		</div>
 	);

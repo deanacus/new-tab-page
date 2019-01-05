@@ -11,9 +11,9 @@ Roadmap:
 
 * [x] ~~Render links on screen~~
 * [x] ~~Add ability to add links~~
-* [ ] Add ability to edit links
+* [x] ~~Add ability to edit links~~
 * [ ] Add ability to sort/rearrange links
-* [ ] Store links in localStorage
+* [x] ~~Store links in localStorage~~
 * [ ] Package into basic Chrome Extension
 
 ## Install

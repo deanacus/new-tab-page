@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import links from './data.js';
+import defaultLinks from './defaultLinks.js';
 import LinkList from './components/LinkList';
 import NavBar from './components/NavBar';
 import Modal from './components/Modal';
@@ -10,19 +10,23 @@ class App extends React.Component {
 		super();
 
 		this.state = {
-			links: links,
+			links: defaultLinks,
 			showModal: false,
 			modal: '',
 			linkToEdit: '',
 		};
 
+		// Control Modal
 		this.showAddForm = this.showAddForm.bind( this );
 		this.showEditForm = this.showEditForm.bind( this );
 		this.showEditSingle = this.showEditSingle.bind( this );
 		this.closeModal = this.closeModal.bind( this );
+
+		// Edit links array
 		this.addLink = this.addLink.bind( this );
 		this.deleteLink = this.deleteLink.bind( this );
 		this.editLink = this.editLink.bind( this );
+		this.resetLinks = this.resetLinks.bind( this );
 	}
 
 	showAddForm() {
@@ -75,6 +79,21 @@ class App extends React.Component {
 		} );
 	}
 
+	resetLinks() {
+		this.setState( {links: [] } );
+	}
+
+	componentDidMount() {
+		const localLinks = localStorage.getItem( 'ntp-links' );
+		if ( localLinks ) {
+			this.setState( {links: JSON.parse( localLinks )} );
+		}
+	}
+
+	componentDidUpdate() {
+		localStorage.setItem( 'ntp-links', JSON.stringify( this.state.links ) );
+	}
+
 	render() {
 		return (
 			<React.Fragment>
@@ -92,6 +111,7 @@ class App extends React.Component {
 						editSingle={this.showEditSingle}
 						links={this.state.links}
 						singleLink={this.state.linkToEdit}
+						resetLinks={this.resetLinks}
 					 />
 				}
 			</React.Fragment>

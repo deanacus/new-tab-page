@@ -22,6 +22,10 @@ class Modal extends React.Component{
 			);
 		}
 		else if ( 'editLinks' === this.props.action ) {
+			const resetLinks = () => {
+				this.props.resetLinks();
+				this.props.close();
+			};
 			content = (
 				<div className="modal-content">
 					<h1>Edit Links</h1>
@@ -33,12 +37,14 @@ class Modal extends React.Component{
 								title={link.title}
 								url={link.url}
 								delete={this.props.delete}
+								close={this.props.close}
 								editSingle={this.props.editSingle}
 							/>
 						) )}
 					</div>
 					<div className="form-controls">
 						<button onClick={this.props.close} type="button">Cancel</button>
+						<button onClick={resetLinks} type="button">Clear All</button>
 					</div>
 				</div>
 			);
