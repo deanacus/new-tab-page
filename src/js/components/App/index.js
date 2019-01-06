@@ -1,5 +1,5 @@
 import React from 'react';
-import defaultLinks from '../../myDefaultLinks.js';
+import defaultLinks from '../../defaultLinks.js';
 import LinkList from '../LinkList/';
 import Clock from '../Clock/';
 import Toolbar from '../Toolbar/';
@@ -12,7 +12,7 @@ class App extends React.Component {
 		this.state = {
 			links: defaultLinks,
 			editMode: false,
-			addMode: true,
+			addMode: false,
 		};
 
 		this.setAddMode = this.setAddMode.bind( this );
