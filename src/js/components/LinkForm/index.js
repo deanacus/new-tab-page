@@ -6,14 +6,12 @@ class LinkForm extends React.Component {
 
 		this.state = {
 			id:  this.props.id || this.generateLinkID(),
-			abbrev: this.props.abbrev || '',
 			title: this.props.title || '',
 			url: this.props.url || '',
 			valid: false,
 		};
 
 		this.generateLinkID = this.generateLinkID.bind( this );
-		this.isValid = this.isValid.bind( this );
 		this.handleChange = this.handleChange.bind( this );
 		this.handleSubmit = this.handleSubmit.bind( this );
 	}
@@ -28,24 +26,26 @@ class LinkForm extends React.Component {
 		}
 	};
 
-	isValid() {
-		if ( '' !== this.state.abbrev && '' !== this.state.title && '' !== this.state.url ) {
-			return true;
-		}
-		return false;
-	}
-
 	handleChange( event ) {
 		let identifier = event.currentTarget.name;
 		let value = event.currentTarget.value;
+		let valid = false;
+
+		if ( '' !== this.state.title && '' !== this.state.url ) {
+			valid = true;
+		}
+
 		this.setState( state => {
-			return { [ identifier ]: value };
+			return {
+				[ identifier ]: value,
+				valid: valid,
+			};
 		} );
 	}
 
-	handleSubmit() {
+	handleSubmit( event ) {
 		event.preventDefault();
-		if ( this.isValid() ) {
+		if ( this.state.valid ) {
 			this.props.save( this.state, this.state.id );
 			this.props.close();
 		}
@@ -53,24 +53,24 @@ class LinkForm extends React.Component {
 
 	render() {
 		return (
-			<form onSubmit={this.handleSubmit}>
-				<label className="form-field">
-					<p>Abbreviation</p>
-					<input type="text" name="abbrev" defaultValue={this.props.abbrev} onChange={this.handleChange} />
-				</label>
-				<label className="form-field">
-					<p>Title</p>
-					<input type="text" name="title" defaultValue={this.props.title} onChange={this.handleChange} />
-				</label>
-				<label className="form-field">
-					<p>URL</p>
-					<input type="url" placeholder="http://" name="url" defaultValue={this.props.url} onChange={this.handleChange} />
-				</label>
-				<div className="form-controls">
-					<button type="submit">{this.props.buttonText}</button>
-					<button onClick={this.props.close} type="button">Cancel</button>
+			<div className="modal">
+				<div className="modal-content">
+					<form onSubmit={this.handleSubmit}>
+						<label className="form-field">
+							<span className="sr-only">Link Title</span>
+							<input type="text" name="title" placeholder="Link title" onChange={this.handleChange} />
+						</label>
+						<label className="form-field">
+							<span className="sr-only">Link Address</span>
+							<input type="url" placeholder="Link address" name="url" onChange={this.handleChange} />
+						</label>
+						<div className="form-controls">
+							<button type="submit">Add</button>
+							<button onClick={this.props.close} type="button">Cancel</button>
+						</div>
+					</form>
 				</div>
-			</form>
+			</div>
 		);
 	}
 }

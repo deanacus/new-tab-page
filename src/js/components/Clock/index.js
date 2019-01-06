@@ -4,6 +4,9 @@ class Clock extends React.Component {
 	constructor( props ) {
 		super( props );
 		this.state = { date: new Date() };
+
+		this.getWeekday = this.getWeekday.bind( this );
+		this.getMonth = this.getMonth.bind( this );
 	}
 
 	_addLeadingZero( num ) {
@@ -19,19 +22,54 @@ class Clock extends React.Component {
 		this.setState( { date: new Date() } );
 	}
 
+	getWeekday() {
+		const days = [
+			'Sunday',
+			'Monday',
+			'Tuesday',
+			'Wednesday',
+			'Thursday',
+			'Friday',
+			'Saturday',
+		];
+
+		return days[ this.state.date.getDay() ];
+	}
+
+	getMonth() {
+		const months = [
+			'January',
+			'February',
+			'March',
+			'April',
+			'May',
+			'June',
+			'July',
+			'August',
+			'September',
+			'October',
+			'November',
+			'December',
+		];
+
+		return months[ this.state.date.getMonth() ];
+	}
+
 	componentDidMount() {
 		this.interval = setInterval( this.updateTime.bind( this ), 200 );
 	}
 
 	render() {
 		return (
-			<div className="clock">
-				<div className="hours time-segment">{this._addLeadingZero( this.state.date.getHours() ) }</div>
+			<header>
+				<h2>{ this.getWeekday() }</h2>
+				<p>{this.getMonth()} {this.state.date.getDate() }</p>
+				<div className="clock">
+					<span className="hours time-segment">{this._addLeadingZero( this.state.date.getHours() ) }</span>
 				:
-				<div className="minutes time-segment">{this._addLeadingZero( this.state.date.getMinutes() ) }</div>
-				:
-				<div className="seconds time-segment">{this._addLeadingZero( this.state.date.getSeconds() ) }</div>
-			</div>
+					<span className="minutes time-segment">{this._addLeadingZero( this.state.date.getMinutes() ) }</span>
+				</div>
+			</header>
 		);
 	}
 }
