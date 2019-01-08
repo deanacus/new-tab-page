@@ -10,19 +10,10 @@
     width: 100vw;
 
     .modal-content {
-        background: $base;
+        background: $grey-1;
         max-width: 90%;
+        padding: 1rem;
         width: 25rem;
-
-        .modal-body {
-            max-height: 50vh;
-            overflow-y: scroll;
-        }
-    }
-
-    h1 {
-        font-family: $heading;
-        text-align: center;
     }
 
     form {
@@ -35,12 +26,14 @@
 
         label {
             display: block;
-            margin: 0 2rem 1rem;
+            padding-bottom: 1rem;
         }
 
         input {
-            border: 0;
+            background: $base;
+            border: 1px solid $grey-1;
             border-radius: .125rem;
+            color: $text;
             font-size: 1rem;
             line-height: 1.5rem;
             padding: .25rem;
@@ -50,22 +43,20 @@
 
     .form-controls {
         display: flex;
-        padding-top: 1rem;
+        justify-content: space-between;
 
         button {
             background: $base;
             border: 0;
-            border-bottom: .2rem solid $base;
             color: $text;
             cursor: pointer;
             font-family: $code;
             font-size: .75rem;
-            padding: 1rem 1rem .8rem;
-            width: 100%;
+            padding: 1rem;
+            width: calc( 50% - .5rem );
 
             &:hover {
-                background: $grey-1;
-                border-bottom: .2rem solid $accent;
+                cursor: pointer;
             }
         }
     }
@@ -105,3 +96,28 @@
         }
     }
 }
+
+// .modal {
+//     background: $grey-2;
+//     padding: 1rem;
+
+//     label {
+//         display: block;
+//         padding-bottom: 1rem;
+
+//         input {
+//             background: $base;
+//             border: 1px solid $grey-1;
+//             border-radius: .125rem;
+//             color: $text;
+//             font-size: .75rem;
+//             line-height: 1.5rem;
+//             padding: .25rem;
+//             width: 100%;
+//         }
+//     }
+
+//     .form-controls {
+//         padding: 1rem 0 0;
+//     }
+// }

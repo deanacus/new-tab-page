@@ -31,12 +31,12 @@ $type-display: 6rem;
 
 // COLOURS
 $white: #f5f5f5;
-$black: #272220;
+$black: #23272a;
 
-$grey-1: lighten( $black, 10% );
-$grey-2: lighten( $black, 45% );
-$accent: #22bb9a;
-$modal-overlay: rgba( $accent, .25 );
+$grey-1: #2a2f33;
+$grey-2: #353535;
+$accent: #7b63b2;
+$modal-overlay: rgba( $grey-2, .75 );
 
 $text: $white;
 $base: $black;

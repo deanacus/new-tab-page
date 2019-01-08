@@ -11,6 +11,8 @@ const LinkList = ( props ) => (
 					abbrev={link.abbrev}
 					title={link.title}
 					url={link.url}
+					editMode={props.editMode}
+					deleteLink={props.deleteLink}
 				/>;
 			} )
 		}

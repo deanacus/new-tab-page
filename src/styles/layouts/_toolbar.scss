@@ -1,0 +1,22 @@
+.toolbar {
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+
+
+    .button {
+        background: $grey-1;
+        border: 0;
+        border-radius: .25rem;
+        color: $text;
+        font-family: $code;
+        font-size: .75rem;
+        margin: 0 .5rem;
+        outline: 0;
+        padding: 1rem 1.5rem;
+
+        &.active {
+            background: $accent;
+        }
+    }
+}

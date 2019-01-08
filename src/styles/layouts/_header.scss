@@ -1,0 +1,23 @@
+header {
+    align-self: center;
+    text-align: center;
+
+    h2 {
+        font-size: $type-subheading;
+        margin-bottom: 0;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .clock {
+        color: $accent;
+        font-size: 1.5rem;
+        font-weight: bold;
+
+        .time-segment {
+            color: $text;
+        }
+    }
+}

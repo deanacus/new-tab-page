@@ -1,15 +1,24 @@
 body {
-    align-items: center;
-    background: $base;
+    background: $black;
     color: $text;
-    display: flex;
     font-family: $code;
-    justify-content: center;
     margin: 0;
     min-height: 100vh;
-    padding: 0 0 3rem;
 }
 
+.app-root {
+    display: grid;
+    grid-template-rows: 20% 1fr 10%;
+    margin: auto;
+    max-width: 49rem;
+    min-height: 100vh;
+}
+
+.sr-only {
+    @include sr-only;
+}
+
+@import './header';
 @import './link-list';
-@import './navbar';
+@import './toolbar';
 @import './modal';
