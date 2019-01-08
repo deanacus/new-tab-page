@@ -31,10 +31,6 @@ class LinkForm extends React.Component {
 		let value = event.currentTarget.value;
 		let valid = false;
 
-		if ( '' !== this.state.title && '' !== this.state.url ) {
-			valid = true;
-		}
-
 		this.setState( state => {
 			return {
 				[ identifier ]: value,
@@ -45,7 +41,7 @@ class LinkForm extends React.Component {
 
 	handleSubmit( event ) {
 		event.preventDefault();
-		if ( this.state.valid ) {
+		if ( '' !== this.state.title && '' !== this.state.url ) {
 			this.props.save( this.state, this.state.id );
 			this.props.close();
 		}
@@ -58,11 +54,11 @@ class LinkForm extends React.Component {
 					<form onSubmit={this.handleSubmit}>
 						<label className="form-field">
 							<span className="sr-only">Link Title</span>
-							<input type="text" name="title" placeholder="Link title" onChange={this.handleChange} />
+							<input type="text" autoFocus="true" name="title" placeholder="Link title" onInput={this.handleChange} />
 						</label>
 						<label className="form-field">
 							<span className="sr-only">Link Address</span>
-							<input type="url" placeholder="Link address" name="url" onChange={this.handleChange} />
+							<input type="url" placeholder="Link address" name="url" onInput={this.handleChange} />
 						</label>
 						<div className="form-controls">
 							<button type="submit">Add</button>
