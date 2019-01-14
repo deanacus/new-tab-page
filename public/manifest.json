@@ -2,10 +2,10 @@
 {
     "name": "Blank new tab page",
     "description": "Override the new tab page with a blank one",
-    "version": "0.2",
+    "version": "1.0.0",
     "incognito": "split",
     "chrome_url_overrides": {
-      "newtab": "public/index.html"
+      "newtab": "index.html"
     },
     "manifest_version": 2
   }
